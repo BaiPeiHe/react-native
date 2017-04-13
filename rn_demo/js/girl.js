@@ -39,11 +39,11 @@ export default class girl extends Component{
                         backgroundColor:'#EE6363'
                     }}
                     leftButton={
-                        this.renderButton(require('./res/images/ic_arrow_back_white_36pt.png'))
+                        this.renderButton(require('./../res/images/ic_arrow_back_white_36pt.png'))
                     }
 
                     rightButton={
-                        this.renderButton(require('./res/images/ic_star.png'))
+                        this.renderButton(require('./../res/images/ic_star.png'))
                     }
                 />
 

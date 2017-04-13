@@ -15,7 +15,8 @@ import {
 } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
-import boy from './boy'
+import boy from './js/boy'
+import ListViewTest from './js/ListViewTest'
 
 export default class rn_demo extends Component {
 
@@ -72,6 +73,7 @@ export default class rn_demo extends Component {
               </TabNavigator.Item>
           </TabNavigator>
           */}
+                {/*
                 <Navigator
 
                     initialRoute={{
@@ -82,6 +84,10 @@ export default class rn_demo extends Component {
                         let Component = route.component;
                         return <Component navigator={navigator}{...route.param}/>
                     }}></Navigator>
+                 */}
+
+                 <ListViewTest/>
+
             </View>
         );
     }
