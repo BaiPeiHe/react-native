@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
 }from 'react-native';
 
-import NavigationBar from './NavigationBar'
+import NavigationBar from './common/NavigationBar'
 
 export default class girl extends Component{
 

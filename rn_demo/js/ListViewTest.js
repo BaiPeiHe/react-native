@@ -13,7 +13,7 @@ import {
     TouchableOpacity,
 }from 'react-native';
 
-import NavigationBar from './NavigationBar'
+import NavigationBar from './common/NavigationBar'
 // DURATION 是常量，表示显示的时长
 import Toast,{DURATION} from 'react-native-easy-toast'
 
