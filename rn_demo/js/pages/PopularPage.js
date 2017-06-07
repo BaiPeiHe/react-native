@@ -9,7 +9,10 @@ import {
     Text,
     TextInput,
     Navigator
-} from 'react-native'
+} from 'react-native';
+
+// import ScrollableTabView,{ScrollableTabBar} from 'react-native-scrollable-tab-view'
+
 import NavigationBar from '../common/NavigationBar'
 import HomePage from './HomePage'
 import DataRepository from '../expand/dao/DataRepository'
