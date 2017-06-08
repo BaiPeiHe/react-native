@@ -36,7 +36,6 @@ export default class HomePage extends Component {
                          title="最热"
                          renderIcon={() => <Image style={styles.iconImage} source={require('../../res/images/ic_polular.png')} />}
                          renderSelectedIcon={() => <Image style={[styles.iconImage,{tintColor:'red'}]} source={require('../../res/images/ic_polular.png')} />}
-                         badgeText="1"
                          onPress={() => this.setState({ selectedTab: 'tb_popular' })}>
                          <PopularPage/>
                      </TabNavigator.Item>
