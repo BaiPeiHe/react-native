@@ -8,7 +8,8 @@ import {
     StyleSheet,
     Text,
     TextInput,
-    ListView
+    ListView,
+    RefreshControl,
 } from 'react-native';
 
 import ScrollableTabView,{ScrollableTabBar} from 'react-native-scrollable-tab-view'
@@ -52,7 +53,13 @@ export default class PopularPage extends Component{
 
     render(){
         return <View style={styles.container}>
-            <NavigationBar title={'最热'} style={{backgroundColor:'#2196F3'}}/>
+            <NavigationBar
+                title={'最热'}
+                style={{backgroundColor:'#2196F3'}}
+                statusBar={{
+                    backgroundColor:'#2196F3'
+                }}
+            />
 
             <ScrollableTabView
                 renderTabBar={()=><ScrollableTabBar/>}
@@ -81,7 +88,8 @@ class PopularTab extends Component{
         this.dataRespository = new DataRepository();
         this.state = {
             result:'',
-            dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2})
+            dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2}),
+            isLoading:false,
         }
     }
 
@@ -90,12 +98,16 @@ class PopularTab extends Component{
         this.loadData();
     }
     loadData(){
+        this.setState({
+            isLoading:true,
+        })
         let url = URL + this.props.tabLabel + QUERY_STR;
         this.dataRespository
             .fetchNetRepository(url)
             .then(result=>{
                 this.setState({
-                    dataSource:this.state.dataSource.cloneWithRows(result.items)
+                    dataSource:this.state.dataSource.cloneWithRows(result.items),
+                    isLoading:false,
                 });
             })
             .catch(error=>{
@@ -108,10 +120,19 @@ class PopularTab extends Component{
     }
 
     render(){
-        return <View>
+        return <View style={{flex:1}}>
             <ListView
                 dataSource={this.state.dataSource}
                 renderRow= {(data)=>this.renderRow(data)}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={this.state.isLoading}
+                        onRefresh={()=>this.loadData()}
+                        colors={['#2196F3']}
+                        tintColor={'#2196F3'}
+                        title={'Loading'}
+                        titleColor={'#2196F3'}
+                    />}
 
             ></ListView>
 

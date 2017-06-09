@@ -53,7 +53,7 @@ const style=StyleSheet.create({
         color:'#212121'
     },
     description:{
-        fontSize:14,
+        fontSize:12,
         marginBottom:2,
         color:'#757575'
     },
